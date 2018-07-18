@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>that_shaman's SkrittCoin Miner</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.ico" sizes="64x64 32x32 24x24 16x16">
+
+    <link rel="canonical">
+
+    <meta name="description" content="that_shaman's SkrittCoin Miner">
+    <meta name="keywords" content="GW2, guild wars 2, guild wars, Skritt, Game, Mining, Crypto Curreny, that_shaman, that shaman, shaman">
+
+    <meta property="og:title" content="that_shaman's SkrittCoin Miner" />
+    <meta property="og:image" content="https://www.skrittcoin.org/cards/square.jpg" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@that_shaman">
+    <meta name="twitter:creator" content="@that_shaman">
+    <meta name="twitter:title" content="that_shaman's SkrittCoin Miner">
+    <meta name="twitter:description" content="Mine SkrittCoin directly in your browser!">
+    <meta name="twitter:image" content="https://www.skrittcoin.org/cards/large.jpg">
+
+
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet" />
+
+
+    <script src="scripts/external/pixi.min.js"></script>
+    <script src="scripts/external/howler.min.js"></script>
+</head>
+<body>
+    <div id="popup">
+        <div style="display: flex; ">
+            <div class="icon" style="flex:1;flex-grow: 0;">
+                <img id="icon" style="height:15vmin; max-height:90px" src="https://render.guildwars2.com/file/3504CD3199285BC1293FAE249ACF9461C50994DB/1465586.png" />
+            </div>
+            <div class="data" style="flex:1; padding-left:2vmin">
+                <div id="name" style="font-size:5vmin"></div>
+                <div id="blurb"></div>
+                <div id="value"></div>
+            </div>
+        </div>
+    </div>
+    <div id="UI">
+        <div id="pauseButton" onclick="javascript:pause()">
+            <img src="graphics/pause.png" />
+        </div>
+
+        <div id="gameMenu">
+            <div class="gameMenuPopup">
+                <h2>PAUSED</h2>
+                <div class="menuButton" onclick="javascript:unpause()" id="resume">
+                    <img src="graphics/icons/resume.png" />
+                    RESUME MINING
+                </div>
+                <div>&nbsp;</div>
+                <div class="menuButton" onclick="javascript:abandon()" id="resume">
+                    <img src="graphics/icons/abandon.png" />
+                    ABANDON SKRITT
+                </div>
+                <div class="menuButton" onclick="javascript:newLevel()" id="resume">
+                    <img src="graphics/icons/new.png" />
+                    NEW LEVEL
+                </div>
+                <div>&nbsp;</div>
+                <div class="menuButton" onclick="javascript:toggleVolume()">
+                    <img src="graphics/icons/sound.png" />
+                    <span id="volume">SOUNDS (all)</span>
+                </div>
+                <div class="menuButton" onclick="javascript:toggleFullscreen()">
+                    <img src="graphics/icons/fullscreen.png" />
+                    TOGGLE FULLSCREEN
+                </div>
+            </div>
+        </div>
+        <div id="player">
+            <div>
+                <span id="score">0</span>
+            </div>
+            <div id="skritt"></div>
+
+        </div>
+        <div id="touch">
+            <div id="left" class="touchButton">
+                <img src="graphics/left.png" />
+            </div>
+            <div id="right" class="touchButton">
+                <img src="graphics/right.png" />
+            </div>
+            <div id="up" class="touchButton">
+                <img src="graphics/up.png" />
+            </div>
+            <div id="down" class="touchButton">
+                <img src="graphics/down.png" />
+            </div>
+        </div>
+    </div>
+    <div id="loading">[LOADING]</div>
+
+    <script src="app/sfx.js"></script>
+    <script src="app/skritt.js"></script>
+    <script src="app/messagestack.js"></script>
+    <script src="app/loot.js"></script>
+    <script src="app/seededrandom.js"></script>
+    <script src="app/cellmap.js"></script>
+    <script src="app/level.js"></script>
+
+    <script src="app/input.js"></script>
+    <script src="app/main.js"></script>
+
+</body>
+</html>

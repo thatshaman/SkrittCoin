@@ -1,0 +1,375 @@
+﻿html {
+    /*HACK get rid of iOS Safari document wobble... why is this even a thing ?! */
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.2em;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    background: #000000;
+}
+
+canvas {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    transform: translate(-50%,-50%);
+}
+
+#player {
+    position: absolute;
+    text-align: right;
+    right: 5vmin;
+    bottom: 5vmin;
+    z-index: 7000;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 5vmin;
+}
+
+#skritt {
+    color: #f2f2f2;
+}
+
+#score {
+    font-size: 7vmin;
+}
+
+#scoreIcon {
+    height: 5vmin;
+}
+
+#touch {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: none;
+    display: none;
+}
+
+
+.touchButton {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    width: 14vmin;
+    height: 14vmin;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 100%;
+    border: solid 2px rgba(255, 255,255, 0.30);
+}
+
+    .touchButton > img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+#touch > #left {
+    bottom: 15vmin;
+    left: 5vmin;
+}
+
+#touch > #right {
+    bottom: 15vmin;
+    left: 32vmin;
+}
+
+#touch > #up {
+    bottom: 28vmin;
+    left: 18.5vmin;
+}
+
+#touch > #down {
+    bottom: 2vmin;
+    left: 18.5vmin;
+}
+
+
+.hidden {
+    opacity: 0;
+}
+
+#popup {
+    position: absolute;
+    width: 70vw;
+    max-width: 420px;
+    height: 15vw;
+    background-color: rgba(0, 0, 0, 0.90);
+    display: block;
+    font-size: 3.33vmin;
+    color: #ffffff;
+    background-clip: padding-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 27px;
+    border-image: url(graphics/border.png) 27 fill repeat;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 7000;
+    opacity: 0;
+    pointer-events: none;
+}
+
+    #popup > .data {
+        position: absolute;
+    }
+
+.popupIcon {
+    height: 15vmin;
+    max-height: 90px;
+    border: solid 1px #000000;
+    border-radius: 4px;
+}
+
+#value {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    font-size: 4.5vmin;
+    line-height: 4.5vmin;
+
+}
+
+    #value > img {
+        vertical-align: middle;
+        height: 3vmin;
+    }
+
+#name {
+    font-size: 4.5vmin;
+}
+
+#blurb {
+    margin-left: 2vmin;
+}
+
+@media screen and (min-width: 600px) {
+    #popup {
+        font-size: 20px;
+        height: 90px;
+    }
+
+    #name {
+        font-size: 27px !important;
+    }
+
+    #blurb {
+        margin-left: 12px;
+    }
+
+    #value {
+        font-size: 27px !important;
+        line-height: 27px !important;
+    }
+
+        #value > img {
+            height: 18px !important;
+        }
+}
+
+
+.fadeIn {
+    animation: popupAnimation 4s;
+}
+
+
+
+@keyframes popupAnimation {
+    0% {
+        opacity: 0;
+        transform: translate(-55%, -50%);
+    }
+
+    5% {
+        opacity: 0;
+        transform: translate(-60%, -50%);
+    }
+
+
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    85% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+
+    90% {
+        opacity: 0;
+        transform: translate(-40%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.rarity_Junk {
+    color: #cccccc;
+}
+
+.rarity_Masterwork {
+    color: #2dc50e;
+}
+
+.rarity_Rare {
+    color: #ffe51f;
+}
+
+.rarity_Exotic {
+    color: #fda500;
+}
+
+.rarity_Legendary {
+    color: #a02ef7;
+}
+
+.menuButton {
+    width: calc( 100% - 2px);
+    padding: 0px;
+    padding-left: 4px;
+    min-height: 7vmin;
+    font-size: 6vmin;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+    .menuButton:hover {
+        color: #fae053;
+        background: #2c2c2c;
+    }
+
+
+    .menuButton.track {
+        overflow: hidden;
+        display: inline-block;
+        width: 45%;
+    }
+
+
+    .menuButton img {
+        height: 4vmin;
+        vertical-align: middle;
+        margin-left: 1vmin;
+    }
+
+
+/*#region Loading screen */
+#loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #000000;
+    display: block;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    display: none;
+    color: #767676;
+}
+/*#endregion*/
+
+
+/*#region Ingame UI */
+#UI {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    color: #ffffff;
+    margin: 0px;
+    padding: 0px;
+    text-shadow: 1px 1px #000000;
+    z-index: 100;
+}
+
+
+#gameMenu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.90);
+    display: none;
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vmin;
+    color: #767676;
+}
+
+
+.gameMenuPopup {
+    min-width: 80vmin;
+    min-height: 50vmin;
+    font-size: 5vmin;
+    color: #ffffff;
+}
+
+    .gameMenuPopup > h2 {
+        text-align: center;
+    }
+
+
+#pauseButton {
+    position: absolute;
+    z-index: 8888;
+    top: 5vmin;
+    left: 5vmin;
+    width: 10vmin;
+    height: 10vmin;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+    #pauseButton > img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+    }
+
+        #pauseButton > img:hover {
+            opacity: 1;
+        }
