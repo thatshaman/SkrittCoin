@@ -195,8 +195,6 @@ document.getElementById("up").addEventListener('touchend', function (e) { input.
 document.getElementById("down").addEventListener('touchstart', function (e) { input.down = true; }, false);
 document.getElementById("down").addEventListener('touchend', function (e) { input.down = false; }, false);
 
-document.getElementById("down").addEventListener('touchstart', function (e) { paus }, false);
-
 // Only show the touch controls on touch devices
 window.addEventListener('touchstart', function () {
     document.getElementById("touch").style.display = "block";

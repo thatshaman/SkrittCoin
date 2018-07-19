@@ -335,7 +335,7 @@
         //    +------+-------+-------+
         // 1  | left | value | right |
         //    +------+-------+-------+
-        // 2  |  bl  | value |   br  |
+        // 2  |  bl  | bottom|   br  |
         //    +------+-------+-------+
         //
         ////////////////////////////////
@@ -352,7 +352,7 @@
                 ];
                 
                 //
-                //  Gravel
+                //  Gravel: Moves down if there's an empty space below
                 //
 
                 if (tileinfo[1][1] === self.tiletypes.gravel) {
@@ -363,7 +363,7 @@
                 }
 
                 //
-                //  Rocks
+                //  Rock: Moves down if there's an empty space below
                 //
 
                 if (tileinfo[1][1] === self.tiletypes.rock) {
@@ -374,7 +374,8 @@
                 }
 
                 //
-                //  Sand
+                //  Sand: Moves down if there's an empty space below, 
+                //        Moves left or right if there's no empty space below but an empty space to the left/right and an empty space below the left/right
                 //
 
                 if (tileinfo[1][1] === self.tiletypes.sand) {
@@ -391,7 +392,7 @@
                 }
 
                 //
-                //  Water
+                //  Water: replicates itself if there's an empty space below or to the left or right of it
                 //
 
                 if (tileinfo[1][1] === self.tiletypes.water) {
@@ -409,7 +410,7 @@
                 }
 
                 //
-                //  Lava
+                //  Lava: replicates itself if there's an empty space below or to the left or right of it
                 //
 
                 if (tileinfo[1][1] === self.tiletypes.lava) {

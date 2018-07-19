@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Draw level to canvas</title>
+    <script src="../../app/seededrandom.js"></script>
+    <script src="../../app/cellmap.js"></script>
+    <script src="../../app/level.js"></script>
+    <style>
+        canvas {
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -o-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+            -ms-interpolation-mode: nearest-neighbor
+        }
+    </style>
+</head>
+<body>
+    <canvas id="level" style="width: 2048px; height: 2048px;"></canvas>
+    <script>
+        var seed = Math.floor((Math.random() * 2147483647) + 1);;
+        //var seed = 0x666;
+        //var seed = 0xFF00FF;
+        //var seed = 0xDEAD;
+
+        var level = new Level(seed);
+
+        var colors = [];
+        colors[level.tiletypes.unkwown] = "#000000";
+        colors[level.tiletypes.none] = "#000000";
+        colors[level.tiletypes.player] = "#000000";
+        colors[level.tiletypes.unkwown] = "#000000";
+        colors[level.tiletypes.unkwown] = "#000000";
+
+        colors[level.tiletypes.gravel] = "#6c5c4f";
+        colors[level.tiletypes.sand] = "#aa8359";
+        colors[level.tiletypes.rock] = "#cecece";
+
+        colors[level.tiletypes.water] = "#51b1df";
+        colors[level.tiletypes.lava] = "#ff7800";
+
+        colors[level.tiletypes.shiny] = "#fff691";
+        colors[level.tiletypes.chest] = "#FFFFFF";
+
+        for (i = 0; i < 10; i++) {
+            colors[level.tiletypes.mud + i] = "#8c6c55";
+        }
+
+        for (i = 0; i < 10; i++) {
+            colors[level.tiletypes.stone + i] = "#454551";
+        }
+
+        colors[level.tiletypes.prop] = "#FF00FF";
+        
+        var tilesize = 4;
+        levelCanvas = document.getElementById("level");
+        levelCanvas.setAttribute("width", "2048px");
+        levelCanvas.setAttribute("height", "2048px");
+        ctx = levelCanvas.getContext("2d");
+
+        // Draw level to canvas
+        for (var y = 0; y < level.map.length; y++) {
+            for (var x = 0; x < level.map[0].length; x++) {
+                ctx.beginPath();
+                ctx.fillStyle = colors[level.map[y][x]];
+                ctx.fillRect(x * tilesize, y * tilesize, tilesize, tilesize);
+                ctx.closePath();
+            }
+        }
+    </script>
+</body>
+</html>
